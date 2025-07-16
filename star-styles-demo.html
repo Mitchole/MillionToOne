@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Styling Options - MillionToOne</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .demo-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        .demo-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .demo-description {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+        .star-container {
+            width: 100%;
+            height: 200px;
+            background: #000;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Star Style 1: Simple Round Points */
+        .star-style-1 {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0) 70%);
+        }
+        
+        /* Star Style 2: Soft Glow */
+        .star-style-2 {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0) 100%);
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+        
+        /* Star Style 3: Color Variation */
+        .star-style-3 {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: 0 0 8px currentColor;
+        }
+        
+        /* Star Style 4: Cross Shape */
+        .star-style-4 {
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+        .star-style-4::before,
+        .star-style-4::after {
+            content: '';
+            position: absolute;
+            background: rgba(255,255,255,0.9);
+            border-radius: 2px;
+        }
+        .star-style-4::before {
+            width: 12px;
+            height: 2px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .star-style-4::after {
+            width: 2px;
+            height: 12px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        /* Star Style 5: Diamond Shape */
+        .star-style-5 {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255,255,255,0.9);
+            transform: rotate(45deg);
+            box-shadow: 0 0 6px rgba(255,255,255,0.5);
+        }
+        
+        /* Star Style 6: Twinkling Animation */
+        .star-style-6 {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0) 100%);
+            animation: twinkle 2s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* Star Style 7: Lens Flare Effect */
+        .star-style-7 {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0) 50%);
+            box-shadow: 
+                0 0 10px rgba(255,255,255,0.8),
+                0 0 20px rgba(255,255,255,0.4),
+                0 0 30px rgba(255,255,255,0.2);
+        }
+        
+        /* Star Style 8: Pulsing Core */
+        .star-style-8 {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0) 70%);
+            animation: pulse 3s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+        
+        /* Generate random star positions */
+        .star-container .star-style-1:nth-child(1) { top: 20%; left: 15%; width: 4px; height: 4px; }
+        .star-container .star-style-1:nth-child(2) { top: 60%; left: 70%; width: 6px; height: 6px; }
+        .star-container .star-style-1:nth-child(3) { top: 80%; left: 25%; width: 3px; height: 3px; }
+        .star-container .star-style-1:nth-child(4) { top: 30%; left: 85%; width: 5px; height: 5px; }
+        .star-container .star-style-1:nth-child(5) { top: 50%; left: 45%; width: 4px; height: 4px; }
+        
+        .star-container .star-style-2:nth-child(1) { top: 25%; left: 20%; width: 6px; height: 6px; }
+        .star-container .star-style-2:nth-child(2) { top: 65%; left: 75%; width: 8px; height: 8px; }
+        .star-container .star-style-2:nth-child(3) { top: 85%; left: 30%; width: 5px; height: 5px; }
+        .star-container .star-style-2:nth-child(4) { top: 35%; left: 80%; width: 7px; height: 7px; }
+        .star-container .star-style-2:nth-child(5) { top: 55%; left: 50%; width: 6px; height: 6px; }
+        
+        .star-container .star-style-3:nth-child(1) { top: 22%; left: 18%; width: 5px; height: 5px; background: #ff6b6b; }
+        .star-container .star-style-3:nth-child(2) { top: 62%; left: 72%; width: 7px; height: 7px; background: #4ecdc4; }
+        .star-container .star-style-3:nth-child(3) { top: 82%; left: 28%; width: 4px; height: 4px; background: #45b7d1; }
+        .star-container .star-style-3:nth-child(4) { top: 32%; left: 82%; width: 6px; height: 6px; background: #96ceb4; }
+        .star-container .star-style-3:nth-child(5) { top: 52%; left: 48%; width: 5px; height: 5px; background: #feca57; }
+        
+        .star-container .star-style-4:nth-child(1) { top: 24%; left: 22%; }
+        .star-container .star-style-4:nth-child(2) { top: 64%; left: 74%; }
+        .star-container .star-style-4:nth-child(3) { top: 84%; left: 32%; }
+        .star-container .star-style-4:nth-child(4) { top: 34%; left: 84%; }
+        .star-container .star-style-4:nth-child(5) { top: 54%; left: 52%; }
+        
+        .star-container .star-style-5:nth-child(1) { top: 26%; left: 24%; }
+        .star-container .star-style-5:nth-child(2) { top: 66%; left: 76%; }
+        .star-container .star-style-5:nth-child(3) { top: 86%; left: 34%; }
+        .star-container .star-style-5:nth-child(4) { top: 36%; left: 86%; }
+        .star-container .star-style-5:nth-child(5) { top: 56%; left: 54%; }
+        
+        .star-container .star-style-6:nth-child(1) { top: 28%; left: 26%; width: 5px; height: 5px; animation-delay: 0s; }
+        .star-container .star-style-6:nth-child(2) { top: 68%; left: 78%; width: 7px; height: 7px; animation-delay: 0.5s; }
+        .star-container .star-style-6:nth-child(3) { top: 88%; left: 36%; width: 4px; height: 4px; animation-delay: 1s; }
+        .star-container .star-style-6:nth-child(4) { top: 38%; left: 88%; width: 6px; height: 6px; animation-delay: 1.5s; }
+        .star-container .star-style-6:nth-child(5) { top: 58%; left: 56%; width: 5px; height: 5px; animation-delay: 2s; }
+        
+        .star-container .star-style-7:nth-child(1) { top: 21%; left: 17%; width: 8px; height: 8px; }
+        .star-container .star-style-7:nth-child(2) { top: 61%; left: 71%; width: 10px; height: 10px; }
+        .star-container .star-style-7:nth-child(3) { top: 81%; left: 27%; width: 6px; height: 6px; }
+        .star-container .star-style-7:nth-child(4) { top: 31%; left: 81%; width: 9px; height: 9px; }
+        .star-container .star-style-7:nth-child(5) { top: 51%; left: 47%; width: 7px; height: 7px; }
+        
+        .star-container .star-style-8:nth-child(1) { top: 23%; left: 19%; width: 6px; height: 6px; animation-delay: 0s; }
+        .star-container .star-style-8:nth-child(2) { top: 63%; left: 73%; width: 8px; height: 8px; animation-delay: 1s; }
+        .star-container .star-style-8:nth-child(3) { top: 83%; left: 29%; width: 5px; height: 5px; animation-delay: 2s; }
+        .star-container .star-style-8:nth-child(4) { top: 33%; left: 83%; width: 7px; height: 7px; animation-delay: 0.5s; }
+        .star-container .star-style-8:nth-child(5) { top: 53%; left: 49%; width: 6px; height: 6px; animation-delay: 1.5s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Star Styling Options</h1>
+        <p>Here are 8 different star styling options. Each preview shows how stars would appear in the starfield:</p>
+        
+        <div class="grid">
+            <div class="demo-card">
+                <div class="demo-title">1. Simple Round Points</div>
+                <div class="demo-description">Clean, minimal circles with soft radial gradient</div>
+                <div class="star-container">
+                    <div class="star-style-1"></div>
+                    <div class="star-style-1"></div>
+                    <div class="star-style-1"></div>
+                    <div class="star-style-1"></div>
+                    <div class="star-style-1"></div>
+                </div>
+            </div>
+            
+            <div class="demo-card">
+                <div class="demo-title">2. Soft Glow</div>
+                <div class="demo-description">Rounded stars with subtle glow effect using box-shadow</div>
+                <div class="star-container">
+                    <div class="star-style-2"></div>
+                    <div class="star-style-2"></div>
+                    <div class="star-style-2"></div>
+                    <div class="star-style-2"></div>
+                    <div class="star-style-2"></div>
+                </div>
+            </div>
+            
+            <div class="demo-card">
+                <div class="demo-title">3. Color Variation</div>
+                <div class="demo-description">Stars with different colors (red, blue, green, yellow, teal)</div>
+                <div class="star-container">
+                    <div class="star-style-3"></div>
+                    <div class="star-style-3"></div>
+                    <div class="star-style-3"></div>
+                    <div class="star-style-3"></div>
+                    <div class="star-style-3"></div>
+                </div>
+            </div>
+            
+            <div class="demo-card">
+                <div class="demo-title">4. Cross Shape</div>
+                <div class="demo-description">Traditional star shape using CSS pseudo-elements</div>
+                <div class="star-container">
+                    <div class="star-style-4"></div>
+                    <div class="star-style-4"></div>
+                    <div class="star-style-4"></div>
+                    <div class="star-style-4"></div>
+                    <div class="star-style-4"></div>
+                </div>
+            </div>
+            
+            <div class="demo-card">
+                <div class="demo-title">5. Diamond Shape</div>
+                <div class="demo-description">Rotated squares with glow, creating diamond-like stars</div>
+                <div class="star-container">
+                    <div class="star-style-5"></div>
+                    <div class="star-style-5"></div>
+                    <div class="star-style-5"></div>
+                    <div class="star-style-5"></div>
+                    <div class="star-style-5"></div>
+                </div>
+            </div>
+            
+            <div class="demo-card">
+                <div class="demo-title">6. Twinkling Animation</div>
+                <div class="demo-description">Animated stars that twinkle with opacity and scale changes</div>
+                <div class="star-container">
+                    <div class="star-style-6"></div>
+                    <div class="star-style-6"></div>
+                    <div class="star-style-6"></div>
+                    <div class="star-style-6"></div>
+                    <div class="star-style-6"></div>
+                </div>
+            </div>
+            
+            <div class="demo-card">
+                <div class="demo-title">7. Lens Flare Effect</div>
+                <div class="demo-description">Multiple layered box-shadows creating a lens flare effect</div>
+                <div class="star-container">
+                    <div class="star-style-7"></div>
+                    <div class="star-style-7"></div>
+                    <div class="star-style-7"></div>
+                    <div class="star-style-7"></div>
+                    <div class="star-style-7"></div>
+                </div>
+            </div>
+            
+            <div class="demo-card">
+                <div class="demo-title">8. Pulsing Core</div>
+                <div class="demo-description">Stars that pulse with scale and opacity animation</div>
+                <div class="star-container">
+                    <div class="star-style-8"></div>
+                    <div class="star-style-8"></div>
+                    <div class="star-style-8"></div>
+                    <div class="star-style-8"></div>
+                    <div class="star-style-8"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 40px; padding: 20px; background: #1a1a1a; border-radius: 8px;">
+            <h3>Implementation Notes:</h3>
+            <ul>
+                <li><strong>Options 1-2:</strong> Best performance, minimal CSS</li>
+                <li><strong>Options 3-5:</strong> Good balance of visual appeal and performance</li>
+                <li><strong>Options 6-8:</strong> Most visually striking but may impact performance with many stars</li>
+                <li><strong>Recommendation:</strong> For best performance with thousands of stars, consider options 1-2</li>
+                <li><strong>Hybrid Approach:</strong> Use different styles for different star sizes/distances</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
